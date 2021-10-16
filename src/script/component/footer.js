@@ -6,7 +6,7 @@ class Footer extends HTMLElement {
     render() {
         this.innerHTML = `
             <footer>
-                <p class="footer-name"> All Rights Reserved. © 2021 Seafood Gallery </p>
+                <p class="footer-name"> All Rights Reserved. © 2021 Seafood Gallery and Resto </p>
             </footer>
         `
     }
