@@ -7,10 +7,18 @@ import "../component/modal.js";
 import "../component/modal-login.js";
 import "../component/search.js";
 import "../component/jumbotron.js";
+import "../component/404error.js";
 //import DataSource from '../data/data-sources.js';
 
 const main = (e) => {
     e.preventDefault();
+    // document.location.search = "";
+
+    // let url = new URL(window.location.href);
+
+    // // set search property to blank
+    // let search = url.search = '';
+    // document.location.search = search;
     // const carouselElement = document.querySelector("carousel-app");
 
     /*** Menu - Search ***/
@@ -18,6 +26,9 @@ const main = (e) => {
     const menuElement = document.querySelector("menu-app");
     const headerElement = document.querySelector("header-app");
     const loginModal = document.querySelector("modal-app");
+    const pageNotFound = document.querySelector("page-not-found-app");
+    const main = document.querySelector(".main");
+    const mainSide = document.querySelector(".main-side");
 
     const loginClicked = () => {
       loginModal.setAttribute("id", "modal-app")
@@ -65,6 +76,9 @@ const main = (e) => {
           if (e.target == loginModal) { 
             loginModal.style.display = "none";
             loginModal.removeAttribute("id");
+          } else if (!e.target.matches('.fa-bars'))
+          { 
+            headerElement.displayBar.style.display = "";
           }
         }}
 
@@ -77,13 +91,43 @@ const main = (e) => {
         closedModal();
         signupClicked();
       }
+
+      const errorPage = () => {
+        main.style.display = "none";
+        mainSide.style.display = "block";
+      }
+
+      const BackToHome = () => {
+        main.style.display = "block";
+        mainSide.style.display = "none";
+      }
+
+      const OpenBar = () => {
+        const status = headerElement.displayBar.style.display;
+        if (status == "") {
+          headerElement.displayBar.style.display = "flex";
+        } else {
+          headerElement.displayBar.style.display = "";
+        }
+      }
+
+      // const ClosedBar = () => {
+      //   window.onclick = (e) => {
+      //     if (!e.target.matches('.fa-bars')) { 
+      //       headerElement.displayBar.style.display = "";
+      //     }
+      // }}
       
       searchElement.search = onKeyupSearch;
       headerElement.openLogin = loginClicked;
       headerElement.openSignUp = signupClicked;
+      headerElement.error = errorPage;
       loginModal.closed = closedModal;
       loginModal.signin = SignInModal;
       loginModal.signup = SignUpModal;
+      pageNotFound.returnHome = BackToHome;
+      headerElement.bar = OpenBar;
+      headerElement.closing = closedModal;
       //loginModal.submitRegister = onFormSubmit;
 
     // const onLoadImages = () => {

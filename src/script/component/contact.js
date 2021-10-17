@@ -11,18 +11,20 @@ class Contact extends HTMLElement {
     </div>
     <div class="contact-container">
         <h3>OPENING HOURS</h3>
-        <ul class="contact-info">
-            <p>Weekday: 10am - 10pm</p>
-            <p>Weekend: 5pm - 10pm</p>
+        <ul>
+            <p class="contact-info">Weekday: 10am - 10pm</p>
+            <p class="contact-info">Weekend: 5pm - 10pm</p>
         </ul>
     </div>
     <div class="contact-container">
         <h3>CONTACT INFORMATION</h3>
         <ul class="contact-info">
-            <p>Bandung, West Java, Indonesia</p>
-            <p>089123456789</p>
-            <p>infoSeafood@admin.com</p>
-        </ul>
+            <p class="contact-info"><i class="fas fa-location-arrow"></i> Bandung, West Java, Indonesia</p>
+            <p class="contact-info"><i class="fab fa-whatsapp"></i> 089123456789</p>
+            <p class="contact-info"><i class="far fa-envelope"></i> infoSeafood@admin.com</p>
+            <p class="contact-socmed"><i class="fab fa-facebook-f"></i> SeafoodGaleryResto </p>
+            <p class="contact-socmed"><i class="fab fa-instagram"></i> SeafoodGaleryResto </p>
+            </ul>
     </div>
         `
     }

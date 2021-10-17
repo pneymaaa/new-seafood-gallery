@@ -1,0 +1,112 @@
+@media (max-width: 360px) {
+    .meal-title {
+        font-size: 0.55em;
+    }
+
+    .jumbotron-center h1 {
+        font-size: 1em;
+    }
+
+    .jumbotron-center p {
+        font-size: 0.8em;
+    }
+
+    .search-seafood {
+        width: 80%;
+    }
+
+    .logo {
+        margin: 0 auto;
+    }
+
+    .home-bars {
+        display: block;
+        width: 25%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex: auto;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        width: 100%;
+        margin-top: 20px !important;
+    }
+
+    #menu-dropdown {
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+    }
+
+    nav {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+  }
+
+
+@media (max-width: 730px) {
+    .jumbotron-center p {
+        font-size: 0.8em;
+    }
+    
+    /* display dibuat flex saat trigger open dropdown*/
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        background-color: #495057;
+        min-width: 120px;
+        box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 20%);
+        z-index: 1;
+        margin-top: 65px;
+        border-radius: 5px;
+        padding: 10px;
+        opacity: 0.8;
+    }
+
+    nav {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    #menu-dropdown {
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .search-seafood {
+        width: 80%;
+    }
+
+    .home-bars {
+        width: 20%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+
+    .logo {
+        margin: 0 auto;
+    }
+
+    .signup-header {
+        background: none;
+        color: white;
+    }
+
+    .fa-bars {
+        cursor: pointer;
+    }
+
+  }

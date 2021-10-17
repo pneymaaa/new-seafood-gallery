@@ -1,3 +1,5 @@
+import "./jumbotron.js";
+
 class Modal extends HTMLElement {
     get Login () {
         return this.renderLogin();
@@ -36,11 +38,6 @@ class Modal extends HTMLElement {
         this._signup = signup
     }
 
-    set submitRegister (submited) {
-        this._submitRegister = submited
-        //this.renderSignup();
-    }
-
     renderMeal() {
         return new Promise((res, rej) => {
             const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${this._idMeal}`
@@ -70,12 +67,13 @@ class Modal extends HTMLElement {
                             <p class="modal-p">${strInstructions}</p>
                         </div>
                         <div class="modal-footer">
-                            <button class="btn po">Pre Order</button>
+                            <button id="po" class="btn po">Pre Order</button>
                         </div>
                 `
             });
             this.appendChild(container);
             window.addEventListener("click", this._closed);
+            this.querySelector("#po").addEventListener("click", () => this.onClickDetail());
         }
         
         renderLogin() {
@@ -90,12 +88,12 @@ class Modal extends HTMLElement {
                 <span class="close" title="Close Modal">&times;</span>
                     <div class="modal-body-item">
                         <label for="uname"><b>Username</b></label>
-                        <input id="username" class="edit-input" type="text" placeholder="Enter Username" name="uname" required>
+                        <input id="username" class="edit-input" type="text" placeholder="Username" name="uname" required>
                     </div>
                     
                     <div class="modal-body-item">
                         <label for="psw"><b>Password</b></label>
-                        <input id="password" class="edit-input" type="password" placeholder="Enter Password" name="psw" required>
+                        <input id="password" class="edit-input" type="password" placeholder="Password" name="psw" required>
                     </div>
                     <button id="sign-up-btn" type="submit" class="btn submit">Sign Up</button>
                     <button type="button" class="btn cancel">Cancel</button>
@@ -115,7 +113,6 @@ class Modal extends HTMLElement {
                 e.preventDefault();
                 this.onLogin();
             });
-
         }
 
         renderSignup() {
@@ -130,15 +127,15 @@ class Modal extends HTMLElement {
                 <span class="close" title="Close Modal">&times;</span>
                     <div class="modal-body-item">
                         <label for="uname"><b>Username</b></label>
-                        <input id="username" class="edit-input" type="text" placeholder="Enter Username" name="uname" required>
+                        <input id="username" class="edit-input" type="text" placeholder="Username" name="uname" required>
                     </div>
                     <div class="modal-body-item">
                         <label for="email"><b>Email</b></label>
-                        <input id="email" class="edit-input" type="email" placeholder="Enter Password" name="email" required>
+                        <input id="email" class="edit-input" type="email" placeholder="Email" name="email" required>
                     </div>
                     <div class="modal-body-item">
                         <label for="psw"><b>Password</b></label>
-                        <input id="password" class="edit-input" type="password" placeholder="Enter Password" name="psw" required>
+                        <input id="password" class="edit-input" type="password" placeholder="Password" name="psw" required>
                     </div>
                     <button id="signup-btn" class="btn submit">Sign Up</button>
                     <button type="button" class="btn cancel">Cancel</button>
@@ -167,10 +164,11 @@ class Modal extends HTMLElement {
             formData["username"] = this.username.value;
             formData["email"] = this.email.value;
             formData["password"] = this.password.value;
+            formData["id"] = +new Date();
             items.push(formData);
             localStorage.setItem("items", JSON.stringify(items));
             alert("Thank you, please continue to sign in!")
-            this.style.display = "none"
+            this.style.display = "none";
         }
 
         onLogin() {
@@ -181,7 +179,19 @@ class Modal extends HTMLElement {
             if (avail == null){
                 alert("register please");
             } else {
-                alert(`thank you, welcome ${this.username.value}`)
+                alert(`thank you, welcome ${avail.username}`);
+                const name = document.querySelector("jumbotron-app");
+                name.loginName = avail.username;
+                this.style.display = "none";
+            }
+        }
+
+        onClickDetail() {
+            const nameLogin = document.querySelector("jumbotron-app");
+            if (nameLogin.name.innerText != ""){
+                alert(`Thank you, ${nameLogin.name.innerText}! Your order have been delivered to your email`);
+            } else {
+                alert("Please login to process your order");
             }
         }
     }
