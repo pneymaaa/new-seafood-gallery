@@ -1,13 +1,17 @@
+/* eslint-disable linebreak-style */
+/* eslint-disable require-jsdoc */
+/* eslint-disable max-len */
+// eslint-disable-next-line require-jsdoc
 class ModalLogin extends HTMLElement {
-    get open () {
-        return this.render();
-    };
+  get open() {
+    return this.render();
+  };
 
-    render() {
-        this.innerHTML = ''
-        const container = document.createElement("div");
-        container.classList.add("modal-container");
-        container.innerHTML = `
+  render() {
+    this.innerHTML = '';
+    const container = document.createElement('div');
+    container.classList.add('modal-container');
+    container.innerHTML = `
             <form>
                     <div class="title-modal">
                     <label for="uname"><b>Username</b></label>
@@ -27,10 +31,9 @@ class ModalLogin extends HTMLElement {
                     <span class="psw">Forgot <a href="#">password?</a></span>
                     </div>
             </form> 
-                    `
-        this.appendChild(container);
-    }
-
+                    `;
+    this.appendChild(container);
+  }
 }
 
-customElements.define("modal-login-app", ModalLogin);
+customElements.define('modal-login-app', ModalLogin);

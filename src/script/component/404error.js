@@ -1,15 +1,19 @@
+/* eslint-disable linebreak-style */
+/* eslint-disable require-jsdoc */
+/* eslint-disable max-len */
+/* eslint-disable-next-line require-jsdoc */
 class PageNotFound extends HTMLElement {
-    connectedCallback(){
-        this.render();
-    }
+  connectedCallback() {
+    this.render();
+  }
 
-    set returnHome(event) {
-       this._returnHome = event;
-       this.render();
-    }
+  set returnHome(event) {
+    this._returnHome = event;
+    this.render();
+  }
 
-    render(){
-        this.innerHTML = `
+  render() {
+    this.innerHTML = `
          <div class="content">
             <h2 class="header">
                404
@@ -24,8 +28,8 @@ class PageNotFound extends HTMLElement {
                <button id="return-home" class="btn">Back to home</button>
             </div>
          </div>
-        `
-        this.querySelector("#return-home").addEventListener("click", this._returnHome)
-    }
+        `;
+    this.querySelector('#return-home').addEventListener('click', this._returnHome);
+  }
 }
-customElements.define("page-not-found-app", PageNotFound);
+customElements.define('page-not-found-app', PageNotFound);

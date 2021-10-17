@@ -1,10 +1,14 @@
+/* eslint-disable linebreak-style */
+/* eslint-disable require-jsdoc */
+/* eslint-disable max-len */
+/* eslint-disable linebreak-style */
 class Contact extends HTMLElement {
-    connectedCallback() {
-        this.render();
-    }
+  connectedCallback() {
+    this.render();
+  }
 
-    render() {
-        this.innerHTML = `
+  render() {
+    this.innerHTML = `
     <div class="contact-container">
         <h3>ABOUT US</h3>
         <p class="contact-info">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus, ea aspernatur reprehenderit et natus odio placeat cupiditate ab, maiores accusantium nihil eveniet eum numquam laborum?</p>
@@ -26,8 +30,8 @@ class Contact extends HTMLElement {
             <p class="contact-socmed"><i class="fab fa-instagram"></i> SeafoodGaleryResto </p>
             </ul>
     </div>
-        `
-    }
+        `;
+  }
 }
 
 customElements.define('contact-app', Contact);
